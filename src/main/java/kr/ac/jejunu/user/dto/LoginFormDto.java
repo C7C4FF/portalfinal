@@ -1,11 +1,11 @@
-package kr.ac.jejunu.user;
+package kr.ac.jejunu.user.dto;
 
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
 
 @Data
-public class LoginForm {
+public class LoginFormDto {
     @NotBlank
     private String loginId;
     @NotBlank

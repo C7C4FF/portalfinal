@@ -1,8 +1,8 @@
-package kr.ac.jejunu.user;
+package kr.ac.jejunu.user.filter;
 
+import kr.ac.jejunu.user.domain.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.PatternMatchUtils;
-import org.springframework.web.bind.annotation.SessionAttributes;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;

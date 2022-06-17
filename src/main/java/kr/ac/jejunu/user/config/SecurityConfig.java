@@ -1,4 +1,4 @@
-package kr.ac.jejunu.user;
+package kr.ac.jejunu.user.config;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
