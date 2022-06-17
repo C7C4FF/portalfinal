@@ -5,6 +5,8 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -19,6 +21,9 @@ public class MiniHome {
     private String introduction;
     @OneToOne(mappedBy = "miniHome")
     private User user;
+
+    @OneToMany(mappedBy = "miniHome")
+    private List<Comment> commentList=new ArrayList<>();
 
     public User addUser(User user){
         this.user=user;

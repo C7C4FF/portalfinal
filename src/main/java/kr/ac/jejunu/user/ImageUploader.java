@@ -13,7 +13,6 @@ public class ImageUploader{
 // http://localhost:8080/user/minihome/update
     public String save(MultipartFile multipartFile, HttpServletRequest request) throws IOException {
         File path = new File("./src/main/resources/static/img/"+ multipartFile.getOriginalFilename());
-
         FileOutputStream fileOutputStream = new FileOutputStream(path);
         BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(fileOutputStream);
         bufferedOutputStream.write(multipartFile.getBytes());

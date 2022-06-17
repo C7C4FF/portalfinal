@@ -63,6 +63,7 @@ public class UserController {
         User user1 = userService.findUser(user.getId());
         model.addAttribute("user",user1);
         model.addAttribute("minihome",user1.getMiniHome());
+        model.addAttribute("commentlist",user1.getMiniHome().getCommentList());
         return "page";
     }
 
@@ -71,6 +72,7 @@ public class UserController {
         User user1 = userService.findUser(id);
         model.addAttribute("user",user1);
         model.addAttribute("minihome",user1.getMiniHome());
+        model.addAttribute("commentlist",user1.getMiniHome().getCommentList());
         return "page";
     }
     @GetMapping(value ={"/logout", "/page/logout"})

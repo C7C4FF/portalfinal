@@ -23,15 +23,26 @@
                     <div class="upper-content">
                         <div id="bold-text">댓글</div>
                         <hr>
+                        <form method="post" th:action="@{/comment/}+${user.id}">
+                            <input type="comment" name="comment" placeholder="댓글을 입력하세요">
+                            <button type="submit">작성</button>
+                        </form>
+                        <tr th:each="comment:${commentlist}">
+                            <div>
+                                <td th:text="'닉:' + ${comment.user.nickname}"></td>
+                                <td th:text="'-'+ ${comment.commentbody}"></td>
+                            </div>
+
+                        </tr>
                     </div>
                 </div>
             </div>
             <div class="menu">
-                <form><button onclick="location.replace('user/minihome/update')">프로필 수정</button ></form>
-                <br>
-                <form><button onclick="location.replace('logout')">로그아웃</button></form>
-                <br>
-                <form method="post" th:action="@{/random}"><button type="submit">랜덤방문</button></form>
+                <button onclick="location.replace('user/minihome/update')">프로필 수정</button>
+                <button onclick="location.replace('logout')">로그아웃</button>
+                <form method="post" th:action="@{/random}">
+                    <button type="submit">랜덤방문</button>
+                </form>
             </div>
         </div>
     </div>
