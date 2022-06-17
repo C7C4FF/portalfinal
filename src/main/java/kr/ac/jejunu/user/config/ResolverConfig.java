@@ -12,8 +12,8 @@ import java.util.List;
 public class ResolverConfig implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/user/minihome/**")
-                .addResourceLocations("/static/image");
+        registry.addResourceHandler("/page")
+                .addResourceLocations("/static/img");
     }
 
     @Override

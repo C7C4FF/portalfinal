@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -23,5 +25,8 @@ public class User {
     @OneToOne
     @JoinColumn(name = "minihome_id")
     private MiniHome miniHome;
+
+    @OneToMany(mappedBy = "user")
+    private List<Comment> commentList=new ArrayList<>();
 
 }

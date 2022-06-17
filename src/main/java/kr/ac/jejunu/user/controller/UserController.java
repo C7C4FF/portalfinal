@@ -3,9 +3,11 @@ package kr.ac.jejunu.user.controller;
 import kr.ac.jejunu.user.domain.User;
 import kr.ac.jejunu.user.dto.LoginFormDto;
 import kr.ac.jejunu.user.dto.UserSignUpDto;
+import kr.ac.jejunu.user.resolver.CurrentUser;
 import kr.ac.jejunu.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,7 +25,8 @@ public class UserController {
     }
 
     @PostMapping("/signup")
-    public String signup(@ModelAttribute("UserSignUp") UserSignUpDto userSignUpDto){
+    public String signup(@ModelAttribute("UserSignUp") UserSignUpDto userSignUpDto,Model model){
+        model.addAttribute("doublecheck",false);
         userService.signUp(userSignUpDto);
         return "redirect:/";
     }
@@ -56,7 +59,29 @@ public class UserController {
     }
 
     @GetMapping("/page")
-    public String Page(){
+    public String Page(Model model, @CurrentUser User user){
+        User user1 = userService.findUser(user.getId());
+        model.addAttribute("user",user1);
+        model.addAttribute("minihome",user1.getMiniHome());
         return "page";
+    }
+
+    @GetMapping("/page/{id}")
+    public String Page(Model model,@PathVariable("id") Long id){
+        User user1 = userService.findUser(id);
+        model.addAttribute("user",user1);
+        model.addAttribute("minihome",user1.getMiniHome());
+        return "page";
+    }
+    @GetMapping(value ={"/logout", "/page/logout"})
+    public String logout(HttpServletRequest request){
+        HttpSession session = request.getSession(false);
+        session.invalidate();
+        return "redirect:/";
+    }
+
+    @PostMapping("/random")
+    public String random(@CurrentUser User user){
+        return "redirect:/page/"+userService.getRamdomUser(user);
     }
 }

@@ -12,7 +12,7 @@ import java.io.IOException;
 
 @Slf4j
 public class LoginFilter implements Filter {
-    private String[] permission={"/","/login","/signup","/css/*"};
+    private String[] permission={"/","/login","/signup","/css/*","/logout"};
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         HttpServletRequest request1 = (HttpServletRequest) request;

@@ -11,13 +11,13 @@
         <div class="page">
             <div class="column1">
                 <div class="profile">
-                    <img class="profile-image" src="./static/images/profileImage.png">
-                    <div class="profile-text"><br>자기소개 써넣을 곳</div>
+                    <img class="profile-image" th:src="${minihome.path}" th:if="${minihome} ne null" alt=""/>
+                    <div class="profile-text" th:text="${minihome.introduction}" th:if="${minihome} ne null"><br></div>
                 </div>
             </div>
             <div class="column2">
                 <div class="top-text-box">
-                    <div class="title">닉네임</div>
+                    <div class="title" th:text="${user.nickname}">닉네임</div>
                 </div>
                 <div class="main-content">
                     <div class="upper-content">
@@ -26,7 +26,11 @@
                     </div>
                 </div>
             </div>
-            <div class="menu"></div>
+            <div class="menu">
+                <button onclick="location.replace('user/minihome/update')">프로필 수정</button >
+                <button onclick="location.replace('logout')">로그아웃</button>
+                <form method="post" th:action="@{/random}"><button type="submit">랜덤방문</button></form>
+            </div>
         </div>
     </div>
 </div>

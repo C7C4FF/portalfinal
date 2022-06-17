@@ -38,6 +38,6 @@ public class MiniHomeController {
         log.info(multipartFile.getOriginalFilename());
         String save = imageUploader.save(multipartFile, httpServletRequest);
         miniHomeService.update(userProfileDto, save, user);
-        return "redirect:/";
+        return "redirect:/page";
     }
 }
