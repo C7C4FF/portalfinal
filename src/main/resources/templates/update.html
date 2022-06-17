@@ -6,11 +6,12 @@
 </head>
 <body>
 <div class="container mt-5">
-    <form th:action="@{/user/minihome/update}" th:object="${UserProfileDto}" method="post" <!--enctype="multipart/form-data"-->>
-<!--        <div class="mb-3">
-            <label th:for="nickname"><b>프로필사진</b></label>
-            <input id="nickname" type="text" class="form-control" placeholder="닉네임을 입력하세요" name="nickname" required>
-        </div>-->
+    <form th:action="@{/user/minihome/update}" th:object="${UserProfileDto}" method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label th:for="propic"><b>프로필사진</b></label>
+            <br>
+            <input type="file" name="file">
+        </div>
         <div class="mb-3">
             <label th:for="nickname"><b>닉네임</b></label>
             <input id="nickname" type="text" class="form-control" placeholder="닉네임을 입력하세요" name="nickname" required>
@@ -20,7 +21,7 @@
             <input id="introduction" type="text" class="form-control" placeholder="자기소개를 입력하세요" name="introduction" required>
         </div>
 
-        <button type="submit" th:href="@{/user/minihome/update}" class="btn btn-primary">Sign Up</button>
+        <button type="submit" th:href="@{/user/minihome/update}" class="btn btn-primary">업데이트</button>
     </form>
 </div>
 </body>
