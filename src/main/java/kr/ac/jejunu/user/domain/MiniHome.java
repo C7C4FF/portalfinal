@@ -16,8 +16,13 @@ public class MiniHome {
     @Column(name = "minihome_id")
     private Long id;
     private String path;
-    private String nickname;
     private String introduction;
     @OneToOne(mappedBy = "miniHome")
     private User user;
+
+    public User addUser(User user){
+        this.user=user;
+        this.user.setMiniHome(this);
+        return this.user;
+    }
 }

@@ -25,9 +25,9 @@ public class MiniHomeController {
 
     @PostMapping("/user/minihome/update")
     public String update(@ModelAttribute UserProfileDto userProfileDto,
-                         @RequestPart("propic") MultipartFile multipartFile,
+                         /*@RequestPart("propic") MultipartFile multipartFile,*/
                          @CurrentUser User user) {
-        miniHomeService.update(userProfileDto, multipartFile, user);
-        return null;
+        miniHomeService.update(userProfileDto, null, user);
+        return "redirect:/";
     }
 }
