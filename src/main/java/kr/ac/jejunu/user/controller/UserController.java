@@ -75,6 +75,7 @@ public class UserController {
         model.addAttribute("commentlist",user1.getMiniHome().getCommentList());
         return "page";
     }
+
     @GetMapping(value ={"/logout", "/page/logout"})
     public String logout(HttpServletRequest request){
         HttpSession session = request.getSession(false);
